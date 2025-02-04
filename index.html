@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="valentine-container">
+        <h3>@chinitoprince19</h3>
+        <div id="content">
+            <img id="initial-image" src="https://i.gifer.com/y2.gif" alt=""/>
+            <div id="initial-text" class="text">Hi Tracy, will you be my Valentine? HEHE</div>
+            <div id="buttons">
+                <div class="btn">
+                    <button id="yesButton" class="yesButton">No</button>
+                </div>
+                <button id="noButton" class="noButton">YES</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const phrases = [
+            "YES",
+            "Are you sure? 😢",
+            "sure naka?",
+            "Cgee na please 😢",
+            "Don't do this to me huhu",
+            "I'm gonna cry 😭",
+            "You break my heart 13 :(",
+        ];
+
+        let noCount = 0;
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const initialImage = document.getElementById('initial-image');
+        const initialText = document.getElementById('initial-text');
+
+        yesButton.addEventListener('click', () => {
+            initialImage.src = "https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif";
+            initialText.innerHTML = "Yeyy, Nice one 13!!";
+            document.getElementById('buttons').innerHTML = `
+                <button class="back-button">
+                    <a href="https://www.messenger.com/t/100003126067970/" target="_blank">PM here</a>
+                </button>
+                <button class="back-button">
+                    <a href="#">BACK</a>
+                </button>
+            `;
+        });
+
+        noButton.addEventListener('click', () => {
+            noCount += 1;
+            noButton.textContent = phrases[Math.min(noCount, phrases.length - 1)];
+            yesButton.style.fontSize = (noCount * 20 + 16) + 'px';
+        });
+    </script>
+</body>
+</html>
